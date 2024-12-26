@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div th:replace="plantilla/fragmentos.html :: navigation"></div>
+        <h3>Editando sus reservas</h3>
+
+        <div class="container">
+            <div class="border  rounded-3 m-2 p-2 border-2">
+                <form action="/mis-reservas/edit" method="post" th:object="${usuario}">
+                    <input type="hidden" th:field="*{id}" name="id" />
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="username" class="form-label"> Usuario: </label>
+                            <input name="usuario" id="username" type="text" class="form-control"
+                                th:field="*{username}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label"> Fecha: </label>
+                            <input name="fecha" type="date" class="form-control" th:field="*{fecha}" />
+                        </div>
+                    </div>
+                   
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="form-label"> Hora: </label>
+                            <input name="hora" type="time" class="form-control" th:field="*{hora}" />
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6">
+                            <button class="btn btn-primary form-control" type="submit">Enviar</button>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+
+    <div th:replace="plantilla/fragmentos.html ::footer"></div>
+    </div>
+</body>
+
+</html>
